@@ -48,29 +48,20 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
         combo_Trans = new javax.swing.JComboBox<>();
         lb_Establecimiento = new javax.swing.JLabel();
         lb_Numero = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tblTrans.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {}
             },
             new String [] {
-                "Cuenta", "Nombre", "Saldo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         jScrollPane1.setViewportView(tblTrans);
 
         btn_enviar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -113,6 +104,8 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
 
         jLabel4.setText("Transaccion");
 
+        txtDeposito.setText("00.00");
+
         btnDepositar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDepositar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/deposito1.png"))); // NOI18N
         btnDepositar.setText("Depositar");
@@ -143,8 +136,12 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        lbFecha.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lbFecha.setForeground(new java.awt.Color(51, 51, 255));
         lbFecha.setText("DD/MM/YY");
 
+        lbhora.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lbhora.setForeground(new java.awt.Color(51, 51, 255));
         lbhora.setText("00:00");
 
         btnCapturar.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -187,141 +184,167 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        lb_Establecimiento.setText("BANCO-RAPTILIANO");
+        lb_Establecimiento.setBackground(new java.awt.Color(0, 102, 102));
+        lb_Establecimiento.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lb_Establecimiento.setForeground(new java.awt.Color(0, 153, 0));
+        lb_Establecimiento.setText("BANCO-REPTILIANO");
 
         lb_Numero.setFont(new java.awt.Font("DialogInput", 1, 36)); // NOI18N
         lb_Numero.setForeground(new java.awt.Color(255, 0, 0));
         lb_Numero.setText("0");
+
+        jLabel5.setForeground(new java.awt.Color(0, 204, 102));
+        jLabel5.setText("EL DINERO ES DINERO");
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel6.setText("No.");
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel7.setText("Estado de las Transacciones:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnCapturar)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_mensaje)
+                            .addComponent(txtSaldo)
+                            .addComponent(txtDeposito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(117, 117, 117))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_enviar)
-                                .addGap(32, 32, 32)
-                                .addComponent(btnDepositar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnRetiro)
-                                .addGap(51, 51, 51)
-                                .addComponent(btnArray))
+                                .addGap(50, 50, 50)
+                                .addComponent(lb_Establecimiento))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(173, 173, 173)
-                                .addComponent(btn_Transaccion))
+                                .addGap(154, 154, 154)
+                                .addComponent(jLabel5))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel4))))
-                                .addGap(69, 69, 69)
+                                .addGap(197, 197, 197)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(136, 136, 136)
+                                .addComponent(txt_Trama, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_Trama)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txt_mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                            .addComponent(txtSaldo))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))))
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(212, 212, 212))))
+                                    .addComponent(jLabel1)
+                                    .addComponent(btnCapturar))
+                                .addGap(30, 30, 30)
+                                .addComponent(combo_Trans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel1)
-                        .addGap(30, 30, 30)
-                        .addComponent(combo_Trans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(191, 191, 191)
+                        .addGap(193, 193, 193)
                         .addComponent(lb_Numero, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(432, 432, 432)
-                        .addComponent(lbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbhora))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(lb_Establecimiento)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(113, 113, 113)
+                        .addComponent(btn_Transaccion)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_enviar)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnDepositar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRetiro)
+                        .addGap(51, 51, 51)
+                        .addComponent(btnArray)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lb_Establecimiento)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbFecha)
-                    .addComponent(lbhora))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(combo_Trans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_Numero, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lb_Establecimiento)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel5))
+                    .addComponent(lbFecha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbhora)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_Numero, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(combo_Trans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(btnCapturar)
-                                .addGap(25, 25, 25))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(txt_Trama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
+                                .addGap(3, 3, 3)
+                                .addComponent(txt_Trama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCapturar)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(27, 27, 27)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(43, 43, 43))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_Transaccion)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_enviar)
-                            .addComponent(btnDepositar)
-                            .addComponent(btnRetiro)
-                            .addComponent(btnArray)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                    .addComponent(btn_Transaccion)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_enviar)
+                        .addComponent(btnDepositar)
+                        .addComponent(btnRetiro)
+                        .addComponent(btnArray)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//boton que realiza la funcion de consultar saldo
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
         try {
-            Socket socket = new Socket("10.0.0.10", 5050);
+            transaccion();
+            Socket socket = new Socket("127.0.0.1", 5050);
             DataOutputStream enviar_datos = new DataOutputStream(socket.getOutputStream());
             enviar_datos.writeUTF("select * from Clientes where cuenta =" + txt_mensaje.getText());
             DataInputStream recibir_datos = new DataInputStream(socket.getInputStream());
+
             String mensaje = recibir_datos.readUTF();
 
             // campo.append("\n" + mensaje);
@@ -331,8 +354,11 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
             txtSaldo.setText(partes[2].replace(" ", ""));
 
         } catch (IOException e) {
+            txtSaldo.setText("Cuenta invalida");
             System.out.println(e);
+
         }
+
     }//GEN-LAST:event_btn_enviarActionPerformed
 
     private void btnArrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArrayActionPerformed
@@ -347,7 +373,7 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
 
             String mensaje = recibir_datos.readUTF();
             System.out.println(mensaje);
-            txtArray.append(mensaje.replace("[", "").replace("]", "\n"));
+            //txtArray.append(mensaje.replace("[", "").replace("]", "\n"));
 
             String Cadena = mensaje.replace("[", "").replace("]", "\n");
             // System.out.println("Esta es la cadena: " + Cadena);
@@ -361,74 +387,67 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
                 System.out.println(s);
             }
 
-            // System.out.println("cantidad de caracteres  " + arreglo.length);
-// for (String lenguaje : arreglo) {
-            //   System.out.println(lenguaje);
             model.addColumn("Cuenta");
             model.addColumn("Nombre del Cliente");
             model.addColumn("Saldo Actual");
             model.addRow(new Object[]{arreglo[0], arreglo[1], arreglo[2]});
 
-            //   }
             tblTrans.setModel(model);
 
-            //para seleccionar solo un valor de la cadena
-            //   string char1;
-            // char1 = cadena.charAt(3);
-            // System.out.println(char1);
-            //fin selecciona valor de la cadena
         } catch (IOException e) {
             System.out.println(e);
         }
     }//GEN-LAST:event_btnArrayActionPerformed
 
     private void btnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarActionPerformed
-//        try {
-//            Socket socket = new Socket("127.0.0.1", 5050);
-//            DataOutputStream enviar_datos = new DataOutputStream(socket.getOutputStream());
-//            enviar_datos.writeUTF("update Clientes set Saldo = Saldo + " + txtDeposito.getText() + " where Cuenta = " + txt_mensaje.getText());
-//            DataInputStream recibir_datos = new DataInputStream(socket.getInputStream());
-//            String mensaje = recibir_datos.readUTF();
-//
-//            // campo.append("\n" + mensaje);
-//            // txtSaldo.setText(mensaje);
-//            consultarSaldo();
-//
-//        } catch (IOException e) {
-//            System.out.println(e);
-//        }
+        try {
+            transaccion();
+            Socket socket = new Socket("127.0.0.1", 5050);
+            DataOutputStream enviar_datos = new DataOutputStream(socket.getOutputStream());
+            enviar_datos.writeUTF("update Clientes set Saldo = Saldo + " + txtDeposito.getText() + " where Cuenta = " + txt_mensaje.getText());
+            DataInputStream recibir_datos = new DataInputStream(socket.getInputStream());
+            String mensaje = recibir_datos.readUTF();
+
+            // campo.append("\n" + mensaje);
+            // txtSaldo.setText(mensaje);
+            consultarSaldo();
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_btnDepositarActionPerformed
 
     private void btnRetiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetiroActionPerformed
-//        try {
-//            Socket socket = new Socket("127.0.0.1", 5050);
-//            DataOutputStream enviar_datos = new DataOutputStream(socket.getOutputStream());
-//            enviar_datos.writeUTF("update Clientes set Saldo = Saldo - " + txtDeposito.getText() + " where Cuenta = " + txt_mensaje.getText());
-//            DataInputStream recibir_datos = new DataInputStream(socket.getInputStream());
-//            String mensaje = recibir_datos.readUTF();
-//
-//            // campo.append("\n" + mensaje);
-//            // txtSaldo.setText(mensaje);
-//            consultarSaldo();
-//
-//        } catch (IOException e) {
-//            System.out.println(e);
-//        }
+        try {
+            transaccion();
+            Socket socket = new Socket("127.0.0.1", 5050);
+            DataOutputStream enviar_datos = new DataOutputStream(socket.getOutputStream());
+            enviar_datos.writeUTF("update Clientes set Saldo = Saldo - " + txtDeposito.getText() + " where Cuenta = " + txt_mensaje.getText());
+            DataInputStream recibir_datos = new DataInputStream(socket.getInputStream());
+            String mensaje = recibir_datos.readUTF();
+
+            // campo.append("\n" + mensaje);
+            txtSaldo.setText(mensaje);
+            consultarSaldo();
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_btnRetiroActionPerformed
 
     private void btnCapturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapturarActionPerformed
-//        String establecimiento = "0000012345";
-//        numerodeTransaccion();
-//        String tipoTran = combo_Trans.getSelectedItem().toString();
-//        String TipoTranN = tipoTran.replace("Consulta", "00").replace("Deposito", "01").replace("Retiro", "02").replace("Transferencia", "03");
-//        String numero = lb_Numero.getText();
-//        String txtformateado = String.format("%5s", numero).replace(" ", "0");
-//
-//        String deposito = txtDeposito.getText();
-//        String depositoformateado = String.format("%10s", deposito).replace(" ", "0");
-//        System.out.println(depositoformateado);
-//
-//        txt_Trama.setText(TipoTranN + establecimiento + lbFecha.getText().replace("/", "") + lbhora.getText().replace(":", "") + txt_mensaje.getText() + depositoformateado + txtformateado);
+        String establecimiento = "0000012345";
+        numerodeTransaccion();
+        String tipoTran = combo_Trans.getSelectedItem().toString();
+        String TipoTranN = tipoTran.replace("Consulta", "00").replace("Deposito", "01").replace("Retiro", "02").replace("Transferencia", "03");
+        String numero = lb_Numero.getText();
+        String txtformateado = String.format("%5s", numero).replace(" ", "0");
+
+        String deposito = txtDeposito.getText();
+        String depositoformateado = String.format("%10s", deposito).replace(" ", "0");
+        System.out.println(depositoformateado);
+
+        txt_Trama.setText(TipoTranN + establecimiento + lbFecha.getText().replace("/", "") + lbhora.getText().replace(":", "") + txt_mensaje.getText() + depositoformateado + txtformateado);
 
     }//GEN-LAST:event_btnCapturarActionPerformed
 
@@ -438,6 +457,20 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_combo_TransActionPerformed
 
     private void btn_TransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TransaccionActionPerformed
+        transaccion();
+    }//GEN-LAST:event_btn_TransaccionActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+
+        java.awt.EventQueue.invokeLater(() -> {
+            new Cliente().setVisible(true);
+        });
+    }
+
+    public void transaccion() {
         try {
             Socket socket = new Socket("127.0.0.1", 5050);
             String establecimiento = "0000012345";
@@ -450,45 +483,48 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
             String depositoformateado = String.format("%11s", deposito).replace(" ", "0");
             //System.out.println(depositoformateado);
             DataOutputStream enviar_datos = new DataOutputStream(socket.getOutputStream());
-            enviar_datos.writeUTF("EXEC dbo.sp_cargatrama '" + TipoTranN + establecimiento + lbFecha.getText().replace("/", "") + lbhora.getText().replace(":", "") + txt_mensaje.getText() + depositoformateado.replace(".","") + txtformateado + "'");
+            enviar_datos.writeUTF("EXEC dbo.sp_cargatrama '" + TipoTranN + establecimiento + lbFecha.getText().replace("/", "") + lbhora.getText().replace(":", "") + txt_mensaje.getText() + depositoformateado.replace(".", "") + txtformateado + "'");
             DataInputStream recibir_datos = new DataInputStream(socket.getInputStream());
             String mensaje = recibir_datos.readUTF();
-            
-            
-            String tipo_tran = mensaje.substring(1,3);
-            String estble = mensaje.substring(4,13);
-            String fecha_trx = mensaje.substring(13,19);
-            String hora_h = mensaje.substring(19,21);
-            String hora_min = mensaje.substring(21,23);
-            String hora_seg = mensaje.substring(23,25);
-            String cta = mensaje.substring(26,35);
-            String monto = mensaje.substring(37,45);
-            String num_trx = mensaje.substring(46,50);
-            String estado = mensaje.substring(50,52).replace("00","Valida").replace("01","Invalida");
-            String miarray[] = {tipo_tran,estble,fecha_trx,hora_h+":"+hora_min+":"+hora_seg,cta,monto,num_trx,estado};
-            for (int i = 0; i < miarray.length; i++) {
-                System.out.println(miarray[i]);
-            }
-          
-            
-//            System.out.println("Tipo de Transaccion: "+tipo_tran.replace("00","Consulta").replace("01","Deposito").replace("02","Retiro").replace("03", "Transferencia")+"\nEstablecimiento: "+estble+"\nFecha: "+fecha_trx+"\nHora : "+hora_h+":"+hora_min+":"+hora_seg+" \nCuenta Bancaria: "+cta+" \nMondo a depositar: " +monto +"\nNumero de Transaccion: "+num_trx+"\nEstatus de Transaccion: "+estado);
+            DefaultTableModel modelo = new DefaultTableModel();
 
+            String tipo_tran = mensaje.substring(1, 3);
+            String estble = mensaje.substring(4, 13);
+            String fecha_trx = mensaje.substring(13, 19);
+            String hora_h = mensaje.substring(19, 21);
+            String hora_min = mensaje.substring(21, 23);
+            String hora_seg = mensaje.substring(23, 25);
+            String cta = mensaje.substring(26, 35);
+            String monto = mensaje.substring(37, 45);
+            String num_trx = mensaje.substring(46, 50);
+            String estado = mensaje.substring(50, 52).replace("00", "Valida").replace("01", "Invalida");
+            ArrayList<Object> nombrecolumna = new ArrayList<Object>();
+            nombrecolumna.add("Tipo de Transaccion");
+            nombrecolumna.add("Establecimiento");
+            nombrecolumna.add("Fecha");
+            nombrecolumna.add("Hora");
+            nombrecolumna.add("Cuenta");
+            nombrecolumna.add("Monto");
+            nombrecolumna.add("Numero Tran");
+            nombrecolumna.add("Estado");
+            for (Object columna : nombrecolumna) {
+                modelo.addColumn(columna);
+
+            }
+            this.tblTrans.setModel(modelo);
+            ArrayList<Object[]> datos = new ArrayList<Object[]>();
+            Object[] informacion1 = new Object[]{tipo_tran, estble, fecha_trx, hora_h + ":" + hora_min +                ":" + hora_seg, cta, monto, num_trx, estado};
+            datos.add(informacion1);
+            for(Object []DatoPersonal: datos){
+            modelo.addRow(DatoPersonal);
+            }
+            tblTrans.setModel(modelo);
+            
         } catch (IOException e) {
             System.out.println(e);
 
         }
-    }//GEN-LAST:event_btn_TransaccionActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Cliente().setVisible(true);
-            }
-        });
     }
 
     public void numerodeTransaccion() {
@@ -539,7 +575,6 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
 
     }
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -554,6 +589,9 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbFecha;
