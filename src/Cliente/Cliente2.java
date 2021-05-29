@@ -441,7 +441,7 @@ public class Cliente2 extends javax.swing.JFrame implements Runnable {
 
     private void btn_TransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TransaccionActionPerformed
         try {
-            Socket socket = new Socket("10.0.0.10", 5050);
+            Socket socket = new Socket("127.0.0.1", 5050);
             String establecimiento = "0000012345";
             numerodeTransaccion();
             String tipoTran = combo_Trans.getSelectedItem().toString();
@@ -452,7 +452,7 @@ public class Cliente2 extends javax.swing.JFrame implements Runnable {
             String depositoformateado = String.format("%11s", deposito).replace(" ", "0");
             //System.out.println(depositoformateado);
             DataOutputStream enviar_datos = new DataOutputStream(socket.getOutputStream());
-            enviar_datos.writeUTF("insert into Banco.dbo.TRANSACCIONES values (getdate(), '" + TipoTranN + establecimiento + lbFecha.getText().replace("/", "") + lbhora.getText().replace(":", "") + txt_mensaje.getText() + depositoformateado.replace(".","") + txtformateado + "')");
+            enviar_datos.writeUTF("EXEC dbo.sp_cargatrama '" + TipoTranN + establecimiento + lbFecha.getText().replace("/", "") + lbhora.getText().replace(":", "") + txt_mensaje.getText() + depositoformateado.replace(".","") + txtformateado + "'");
             DataInputStream recibir_datos = new DataInputStream(socket.getInputStream());
             String mensaje = recibir_datos.readUTF();
 
